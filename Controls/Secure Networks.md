@@ -1,1 +1,35 @@
+Control Domain	Control Sub-Domain	Control ID	"CCM v4
+Domain
+"	Control	Confidentiality	Integrity	Availability	Additional Direction	References	"Control 
+Type"	"Man
+Auto
+Semi"	Freq	Device	Network	Gateway	Cloud Service
+Secure Networks	Secure Messaging	SNT-09	IAM	"Enforce security for MQTT protocol messaging. Define authorized MQTT topics and create/enforce an access control list within the broker to restrict IoT devices from publishing content or subscribing to unauthorized message topics. Encrypt all MQTT messages. Use certificates to authenticate MQTT transactions. Consider throttling traffic to MQTT servers on both a global and per-client basis and always route MQTT traffic through a firewall. Reduce the standard MQTT message size to limit an attackers' ability to overload the system by sending large messages. 
+
+"	Medium	Medium	Medium	Many IoT implementations use publish/subscribe protocols such as MQTT. Consider implementing read/write restrictions on sensitive topics used within the system. MQTT by default does not encrypt the password field. SSL certificates can be used by the server for authenticating the clients when TLS is used. Clients can also authenticate using LDAP or OAuth tokens or leverage OS authentication mechanisms. MQTT does not have a mechanism for authenticating the server. However, use of SSL certificates when using TLS or use of a VPN can identify which server the client is trying to connect to. Throttling the server protects against an overload of server processing capacity, which could cause latency or availability issues. Smaller message sizes help prevent DoS attacks.	"MQTT Version 3.1.1 Plus Errata 01: OASIS Standard Incorporating Approved Errata 01 - 5.4.1 and 5.4.3 
+http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html#_Toc442180929
+
+MQTT Version 3.1.1 Plus Errata 01: OASIS Standard Incorporating Approved Errata 01 - 5.4.8
+http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html#_Toc442180929"	P	A	C	TRUE		TRUE	TRUE
+Secure Networks	Encryption	SNT-10	EKM	"Encrypt all TCP-based communications (e.g., REST, MQTT, AMQP) between system components using X.509 authenticated Transport Layer Security (TLS). 
+
+"	Medium	Medium	Medium	"The use of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Version 1.0 and 1.1 are now deprecated. As of this writing, NIST recommends the use of TLS Version 1.3 or Version 1.2. Ensure that your IoT system uses the TLS version recommended in the latest version of the NIST Special Publication 800-52.
+
+The NIST deadline for federal agencies to support TLS 1.3 is January 2024. However, NIST expects TLS 1.2 to coexist with 1.3. 
+
+"	"NIST SP 800-52 Revision 1 (Guidelines for the Selection, Configuration, and Use of Transport Layer Security (TLS) Implementations) 
+http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-52r1.pdf
+
+IETF RFC 7525 Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)
+https://tools.ietf.org/html/rfc7525 https://csrc.nist.gov/publications/detail/sp/800-52/rev-2/draft"	P	A	C	TRUE	TRUE	TRUE	TRUE
+Secure Networks	Encryption	SNT-11	EKM	Encrypt all UDP-based communications (e.g., Constrained Application Protocol (CoAP)) between system components using the Datagram Transport Layer Security (DTLS) protocol specified in IETF RFC 7525 or newer.	Medium	Medium	Medium	Many IoT protocols require UDP-based transport. For these protocols, TLS is not a viable option, therefore best practice is to use the Datagram equivalent of TLS (DTLS).	"Implement DTLS to protect UDP-based protocols as specified in the IETF Best Practice Guidance RFC 7525
+https://tools.ietf.org/html/rfc7525"	P	A	C	TRUE	TRUE	TRUE	TRUE
+Secure Networks	Encryption	SNT-12	EKM	Enforce end-to-end authenticated encryption protocols across all IoT system endpoints. Use Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS) as appropriate based on TCP/UDP communications. Ensure that all encryption operations align with policy guidance from the latest version of NIST SP 800-131A.	Low	Low	Low	Recommended cryptographic cipher suites change frequently based on the abilities of attackers and vulnerabilities identified in algorithms previously thought secure. Always ensure that your IoT system implements the cipher suites recommended in NIST SP 800-131A and removes the suites that are deprecated. Failure to remove deprecated suites opens an IoT system to potential downgrade attacks whereby the attacker tricks a system component into negotiating a cryptographic connection using weaker algorithms.	"NIST SP 800-131A Revision 2 (Transitions: Recommendation for Transitioning the Use of Cryptographic Algorithms and Key Lengths) https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf
+"	P	M	A	TRUE	TRUE	TRUE	TRUE
+Secure Networks	"Secure Networks
+Allowlisting"	SNT-13	IAM	Configure IoT devices to drop new incoming communication attempts. Require that IoT devices initiate all communications.	Medium	Medium	Medium	IoT devices typically have known connection states with whom they communicate with. They should always talk to only known trusted peers/systems/endpoints and drop any new connection request, command, and control from the unknown source to reduce the attack surface	"Securing Small-Business and Home Internet of Things (IoT) Devices -
+Mitigating Network-Based Attacks Using Manufacturer Usage Description (MUD): https://www.nccoe.nist.gov/publication/1800-15/VolB/index.html"	P	A	C	TRUE			
+Secure Networks	Allowlisting	SNT-14	IAM	Configure IoT devices, gateways, services, and applications to communicate only with authorized peers and service endpoints.	Medium	Medium	Medium	Access management is the key to reduce the security risk in IoT ecosystem.	"CSA Identity and Access Management for IoT
+https://downloads.cloudsecurityalliance.org/assets/research/internet-of-things/identity-and-access-management-for-the-iot.pdf"	P	A	C	TRUE			
+![image](https://user-images.githubusercontent.com/10893218/160197036-6daa264c-793e-41b4-b6d2-a3b804291712.png)
 
