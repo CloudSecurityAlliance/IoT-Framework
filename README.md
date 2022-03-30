@@ -1,3 +1,5 @@
+** Join the CSA IoT Controls Matrix Discussion on our Slack Channel: https://join.slack.com/t/csaiotwg/shared_invite/zt-165s7f45j-Ob7lJp5pW64hxD~gAkND7A **
+
 <h1> Introduction </h1>
 The Internet of Things (IoT) market continues to expand with newly introduced advances in connectivity and autonomy across industry sectors. A reliance on IoT-generated data and features requires organizations that adopt these new technologies to plan for accessible, secure, and resilient deployments. Given the rapid evolution of connected technologies and the constant flow of new threats, these aspirations are challenging. Creating a safe IoT environment requires security engineering that addresses unique risks and employs appropriate mitigation measures. The Cloud Security Alliance (CSA) IoT Security Controls Framework provides a starting point for organizations that wish to better understand and implement security controls within their IoT architecture. This accompanying guide explains how enterprise organizations can use the Framework to securely evaluate and implement IoT systems. 
  
